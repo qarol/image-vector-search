@@ -6,13 +6,13 @@ RSpec.describe Photo, type: :model do
 
   describe '#similar' do
     xit 'returns similar photos' do
-      expect(photo.similar).to eq([photo_copy])
+      expect(photo.similar).to eq([ photo_copy ])
     end
   end
 
   describe '.by_description' do
     xit 'returns photos by description' do
-      expect(Photo.by_description('a photo')).to match_array([photo, photo_copy])
+      expect(Photo.by_description('a photo')).to match_array([ photo, photo_copy ])
     end
   end
 end
