@@ -1,5 +1,6 @@
 class Photo < ApplicationRecord
   has_one_attached :file
+  has_neighbors :embedding, dimensions: 512
 
   def similar
     Photo.all
