@@ -5,7 +5,7 @@ class Photo < ApplicationRecord
   after_create :calculate_embedding
 
   def similar
-    Photo.all
+    nearest_neighbors(:embedding, distance: :cosine)
   end
 
   def self.by_description(description)
