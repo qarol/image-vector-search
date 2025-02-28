@@ -14,7 +14,8 @@ class Photo < ApplicationRecord
   end
 
   def self.by_image(image)
-    Photo.all
+    embedding = $image_embedding.call(image.path)
+    nearest_neighbors(:embedding, embedding, distance: :cosine)
   end
 
   def file_path
