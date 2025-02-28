@@ -9,7 +9,8 @@ class Photo < ApplicationRecord
   end
 
   def self.by_description(description)
-    Photo.all
+    embedding = $text_embedding.call(description)
+    nearest_neighbors(:embedding, embedding, distance: :cosine)
   end
 
   def self.by_image(image)
